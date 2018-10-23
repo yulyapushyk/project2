@@ -1,0 +1,45 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Channels</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='channels.js') }}"></script>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-1 col-md-11">
+            <h4> Hello <span id="user_name"></span></h4>
+        </div>
+        <div class="col-md-1">
+            <button id="logout_button" class="btn btn-primary">Log Out</button>
+        </div>
+    </div>
+    <div class="channels_container">
+        <h2>Channels</h2>
+        <div id="channel-list">
+            <table class="table table-striped" id="channelss">
+                <tbody id="channels">
+                {% for channel in channel_list %}
+                    <tr><td class="channel">{{ channel.name }}</td> </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div id="channel_form" class="input-group">
+            <form>
+                <div class="form-group">
+                    <input id="channel_name" type="text" autocomplete="off" autofocus placeholder="New channel">
+                </div>
+                <div class="form-group">
+                <button class="btn btn-primary" id="new-channel">Create channel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

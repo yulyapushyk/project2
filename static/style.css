@@ -1,0 +1,39 @@
+span {
+    color: #0085ba;
+}
+h2 {
+  font-weight: bold;
+}
+#channel_color {
+    color: #e73c50;
+}
+.container {
+    margin-top: 20px;
+}
+#button_send {
+    margin-left: 20px;
+}
+#current_channel {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    border-top: 1px solid black;
+    padding-top: 10px;
+}
+tr {
+    color: #0085ba;
+}
+.channels_container {
+    border-top: 1px solid black;
+    margin-top: 20px;
+}
+table tr:hover td {
+  background-color: #e73c50;
+    color: #ffffff;
+}
+#channel_list {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+p {
+    font-size: 20px;
+}
