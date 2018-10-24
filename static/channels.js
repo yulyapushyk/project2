@@ -38,9 +38,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
     });
+<<<<<<< HEAD
     socket.on('new_channel', data => {
         document.getElementById("channels").innerHTML += `<tr><td>${data['name']}</td></tr>`;
         document.querySelector("#channel_name").value = "";
         window.location = "/channels";
     });
+=======
+>>>>>>> 158f1494d3b3c6f3f6eccf0f947529372bda981d
 });
