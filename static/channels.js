@@ -38,8 +38,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
     });
-    socket.on('new_channel', data => {
-        document.getElementById("channels").innerHTML += `<tr><td>${data['name']}</td></tr>`;
-        document.querySelector("#channel_name").value = "";
-    });
 });
