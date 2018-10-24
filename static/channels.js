@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location = "/";
     };
     document.querySelectorAll('.channel').forEach(channel => {
-            channel.onclick = () => {window.location = "/channel/" + channel.innerHTML;
-            };
-        });
+         channel.onclick = () => {window.location = "/channel/" + channel.innerHTML;
+         };
+     });
     socket.on('connect', () => {
         document.querySelector('#new-channel').disabled = true;
         document.querySelector('#channel_name').onkeyup = () => {
@@ -41,5 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
     socket.on('new_channel', data => {
         document.getElementById("channels").innerHTML += `<tr><td>${data['name']}</td></tr>`;
         document.querySelector("#channel_name").value = "";
+        window.location = "/channels";
     });
 });
