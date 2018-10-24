@@ -1,11 +1,13 @@
-span {
+p {
     color: #0085ba;
+    font-size: 20px;
 }
-h2 {
+h2, h3 {
   font-weight: bold;
 }
+
 #channel_color {
-    color: #e73c50;
+    color: #0085ba;
 }
 .container {
     margin-top: 20px;
@@ -27,13 +29,10 @@ tr {
     margin-top: 20px;
 }
 table tr:hover td {
-  background-color: #e73c50;
+  background-color: #0085ba;
     color: #ffffff;
 }
 #channel_list {
     margin-bottom: 10px;
     margin-top: 10px;
-}
-p {
-    font-size: 20px;
 }

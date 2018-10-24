@@ -28,30 +28,31 @@
                 {#    if (document.querySelector('#message_input').value.length > 0)#}
                 {#        document.querySelector('#button_send').disabled = false;#}
                 {#    };#}
-                document.getElementById("button_send").onclick = () => {
-                    let text = document.querySelector('input');
-                    let time = new Date();
-                    // Send message to server
-                    socket.emit('add message', {
-                        'user': localStorage.getItem('login'),
-                        'time': time.toLocaleString('en-US'),
-                        'message': text.value,
-                        'channel': '{{ name }}'
-                    });
-                    //Clear input
-                    text.value = "";
-                    return false
-                }
                  // When press enter- add onclick event
                 document.getElementById("message_input").onkeyup = event => {
                     if (event.key === "Enter") {
                         document.getElementById("button_send").click();
                     }
-                };
+
+                    document.getElementById("button_send").onclick = () => {
+                        let text = document.querySelector('input');
+                        let time = new Date();
+                        // Send message to server
+                        socket.emit('add message', {
+                            'user': localStorage.getItem('login'),
+                            'time': time.toLocaleString('en-US'),
+                            'message': text.value,
+                            'name': '{{ name }}'
+                        });
+                        //Clear input
+                        text.value = "";
+                        return false
+                    }
+                }
             })
             // When  message is announce, add the message to channel
             socket.on("announce message", data => {
-                if (data["channel"] == document.URL.split("/").pop()) {
+                if (data["name"] == document.URL.split("/").pop()) {
                     let message = `<article class="message"><span>${data["user"]}</span> <span>[${data["time"]}]</span><p>${data["message"]}</p></article>`;
                     document.querySelector('#messages-container').innerHTML += message;
                     return false;
@@ -64,7 +65,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-offset-1 col-md-11">
-            <h4> Hello <span id="user_name"></span></h4>
+            <h4> Hello <span id="user_name" style="color:#0085ba;"></span></h4>
         </div>
         <div class="col-md-1">
             <button id="logout_button" class="btn btn-primary">Log Out</button>
