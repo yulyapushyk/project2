@@ -9,3 +9,4 @@ And the last page includes current channel with the ability to send text message
 With Socketio, I am able to implement live messaging between users in real time.
 If a user closes the page and returns to the app later, the display name is remembered.
 My application stores the 100 most recent messages per channel.
+
