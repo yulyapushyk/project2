@@ -39,7 +39,7 @@ def add_channel(data):
 @socketio.on("add message")
 def sent(data):
     messages[data["name"]].append((data["user"], data["time"], data["message"]))
-    while len(messages[data["name"]]) > 100:
+    if len(messages[data["name"]]) > 100:
         messages[data["name"]].pop(0)
     emit("announce message",
          {"user": data["user"], "time": data["time"], "message": data["message"], "name": data["name"]},
